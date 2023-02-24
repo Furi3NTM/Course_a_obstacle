@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
    private void Start()
     {
         //Position de depart du joueur
-        transform.position = new Vector3(-12f, 0.51f, -12f);
+        transform.position = new Vector3(-43.1f, 0.51f, -44.59f);
     }
 
 
