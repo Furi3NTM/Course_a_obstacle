@@ -18,15 +18,12 @@ public class CollisionMur : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && _toucher == false) 
         {
 
-             if (_toucher == false)
-             {
              gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
              _gameManager.AugmenterPointage();
-             _toucher=true;
-             }  
+             _toucher=true;       
         }
 
         

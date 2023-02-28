@@ -26,7 +26,12 @@ public class GameManager : MonoBehaviour
 
     public void AugmenterPointage()
     {
-        _pointage--;
+        _pointage++;
         Debug.Log("Le pointage est de " + _pointage);
+    }
+
+    public int GetPointage()
+    {
+        return _pointage;
     }
 }
