@@ -8,6 +8,17 @@ public class GameManager : MonoBehaviour
     //Attributs
     private int _pointage;
 
+    private void Awake()
+    {
+        int nbGameManager = FindObjectsOfType<GameManager>().Length;
+        if (nbGameManager > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+         DontDestroyOnLoad(gameObject);
+    }
+
 
     private void Start()
     {

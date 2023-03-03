@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //Attributs 
-   [SerializeField] private float _vitesse = 800;
+    [SerializeField] private float _vitesse = 800;
     private bool _estActif = true;                     //??
     private Rigidbody _rb;
 

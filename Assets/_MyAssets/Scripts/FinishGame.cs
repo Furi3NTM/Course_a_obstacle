@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishGame : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class FinishGame : MonoBehaviour
     private bool _toucher;
     private bool _finish;
 
-    //Utiliser les méthodes de d'autre classe
+    //Utiliser les mï¿½thodes de d'autre classe
     private GameManager _gameManager;
     private Player _player;
 
@@ -17,11 +18,12 @@ public class FinishGame : MonoBehaviour
     {
         _toucher = false;
         _gameManager = FindObjectOfType<GameManager>();
+        _player = FindObjectOfType<Player>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        //mettre l'objet qui VA toucher pas l'objet qui EST touché
+        //mettre l'objet qui VA toucher pas l'objet qui EST touchï¿½
         if (collision.gameObject.tag == "Player" && _toucher == false)
         {
            
@@ -31,14 +33,26 @@ public class FinishGame : MonoBehaviour
                 //Change la couleur du mur
                 gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
 
+            //RÃ©cupere l'index de la scene en cours
+            int noScene = SceneManager.GetActiveScene().buildIndex;
+            if(noScene == 1)
+            {
+
+           
+
                 //Afficher les informations sur mon jeu
                 Debug.Log("BRAVO MTFK, ton temps est de : " + Time.time + " secondes" );
-                Debug.Log("Vous avez accroché " + erreurs + " obstacles" );
+                Debug.Log("Vous avez accroche " + erreurs + " obstacles" );
                 Debug.Log("Votre temps est de " + total + " secondes");
 
                 //Arreter le joueur
                 _player.StopJoueur();
-                
+            }
+            else
+            {
+                SceneManager.LoadScene(noScene + 1);
+            }
+
 
         }
     }
