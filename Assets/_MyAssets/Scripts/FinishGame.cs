@@ -35,10 +35,9 @@ public class FinishGame : MonoBehaviour
 
             //Récupere l'index de la scene en cours
             int noScene = SceneManager.GetActiveScene().buildIndex;
+
             if(noScene == 1)
             {
-
-           
 
                 //Afficher les informations sur mon jeu
                 Debug.Log("BRAVO MTFK, ton temps est de : " + Time.time + " secondes" );

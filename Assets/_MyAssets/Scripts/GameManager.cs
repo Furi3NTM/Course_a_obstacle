@@ -11,12 +11,16 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         int nbGameManager = FindObjectsOfType<GameManager>().Length;
+
         if (nbGameManager > 1)
         {
             Destroy(gameObject);
         }
         else
-         DontDestroyOnLoad(gameObject);
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        
     }
 
 
@@ -27,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //Méthodes
+    //MÉTHODES
     private static void Instruction()
     {
         Debug.Log("*** Course a obstacle ***");
